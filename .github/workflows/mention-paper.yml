@@ -1,0 +1,49 @@
+name: Mention paper trading
+
+# Hourly forward test of the mention-market model (mention/paper.py):
+# forecast events starting within 24h, settle finished ones, commit the journal.
+# Transcripts live only in the Actions cache, never in the repo.
+
+on:
+  schedule:
+    - cron: "23 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mention-paper
+  cancel-in-progress: false
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/cache@v4
+        with:
+          path: mention/.cache
+          key: mention-cache-${{ github.run_id }}
+          restore-keys: mention-cache-
+      - name: Self-checks
+        run: |
+          python3 -m mention.rules
+          python3 -m mention.model
+          python3 -m mention.events
+          python3 -m mention.paper demo
+      - name: Settle and forecast
+        run: python3 -m mention.paper run
+      - name: Scoreboard
+        run: python3 -m mention.paper report | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Commit journal
+        run: |
+          git add mention/journal
+          if git diff --cached --quiet; then echo "no journal changes"; exit 0; fi
+          git -c user.name="github-actions[bot]" -c user.email="41898333+github-actions[bot]@users.noreply.github.com" \
+            commit -m "mention: paper tick $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase --quiet && git push

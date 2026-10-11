@@ -14,3 +14,6 @@ subagent-template.txt
 
 # loop.sh single-instance guard
 .loop.pid
+
+# mention-market transcript cache (third-party text, never committed)
+mention/.cache/
