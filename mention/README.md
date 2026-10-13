@@ -21,7 +21,7 @@ Transcripts are cached in `mention/.cache/` and never committed.
 - `backtest.py` scores the model on closed markets at a pre-event price snapshot, walk-forward.
 - `paper.py` is the forward test, journal in `mention/journal/paper.jsonl`.
 - `tick.sh` runs one forward-test tick and pushes the journal.
-  It is for runners outside GitHub Actions (a Claude routine), which is less reliable on its own because GitHub skips many scheduled runs.
+  It is for a runner outside GitHub Actions (a Claude routine), since GitHub skips many scheduled runs.
   The journal is union-merged (`.gitattributes`) and only the first row per market and type counts, so two runners cannot double-count.
 
 ## Honest-simulation rules
