@@ -21,11 +21,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 50
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         with:
           path: mention/.cache
           key: mention-cache-${{ github.run_id }}
@@ -39,8 +39,10 @@ jobs:
       - name: Settle and forecast
         run: python3 -m mention.paper run
       - name: Scoreboard
+        if: always()
         run: python3 -m mention.paper report | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Commit journal
+        if: always()  # a crash mid-run must not lose rows already appended
         run: |
           git add mention/journal
           if git diff --cached --quiet; then echo "no journal changes"; exit 0; fi
