@@ -98,3 +98,25 @@
 {"type": "forecast", "ts": "2026-10-13T11:43:02.197470+00:00", "event_id": "1156114", "title": "What will BlackRock say during their next earnings call?", "kind": "earnings", "start": "2026-10-14T07:30:00-04:00", "market_id": "5444170", "condition_id": "0x8a40ef932331aa6a0be5e19017259fabca165d8bcb3c2934bd66395141a27f0e", "tokens": {"Yes": "41778905078691043063196845941503132880199411508703896953971636851313786968333", "No": "67984318816695096242839241636023442944392105584671780622264437811219861999773"}, "question": "Will BlackRock say \"Index\" during earnings call?", "threshold": 1, "counts": [8, 11, 7, 7, 6], "model_p": 0.8938, "k": 0.2, "market_p": 0.925, "blend_p": 0.9188, "books": {"Yes": {"bid": 0.852, "bid_size": 15.08, "ask": 0.998, "ask_size": 500.0}, "No": {"bid": 0.002, "bid_size": 500.0, "ask": 0.148, "ask_size": 15.08}}, "fee_rate": 0.04, "taker": null, "maker": null}
 {"type": "settle", "ts": "2026-10-13T14:42:02.278445+00:00", "market_id": "5444148", "outcome": 1}
 {"type": "settle", "ts": "2026-10-13T14:42:02.511512+00:00", "market_id": "5444149", "outcome": 1}
+{"type": "settle", "ts": "2026-10-13T15:41:44.965557+00:00", "market_id": "5444128", "outcome": 1, "maker_filled": 0, "maker_pnl": -0.0}
+{"type": "settle", "ts": "2026-10-13T15:41:45.492383+00:00", "market_id": "5444129", "outcome": 1, "maker_filled": 0, "maker_pnl": -0.0}
+{"type": "settle", "ts": "2026-10-13T15:41:46.345927+00:00", "market_id": "5444130", "outcome": 1}
+{"type": "settle", "ts": "2026-10-13T15:41:46.556063+00:00", "market_id": "5444131", "outcome": 1}
+{"type": "settle", "ts": "2026-10-13T15:41:46.766407+00:00", "market_id": "5444132", "outcome": 0, "maker_filled": 0, "maker_pnl": -0.0}
+{"type": "settle", "ts": "2026-10-13T15:41:47.497815+00:00", "market_id": "5444133", "outcome": 0, "taker_pnl": 9.2309, "maker_filled": 14.74, "maker_pnl": 7.5174}
+{"type": "settle", "ts": "2026-10-13T15:41:48.065872+00:00", "market_id": "5444134", "outcome": 1}
+{"type": "settle", "ts": "2026-10-13T15:41:48.273583+00:00", "market_id": "5444135", "outcome": 0, "maker_filled": 0, "maker_pnl": -0.0}
+{"type": "settle", "ts": "2026-10-13T15:41:48.944846+00:00", "market_id": "5444136", "outcome": 0, "maker_filled": 2.87, "maker_pnl": 0.6601}
+{"type": "settle", "ts": "2026-10-13T15:41:49.546863+00:00", "market_id": "5444137", "outcome": 1, "maker_filled": 0, "maker_pnl": 0.0}
+{"type": "settle", "ts": "2026-10-13T15:41:50.067383+00:00", "market_id": "5444138", "outcome": 1, "maker_filled": 0, "maker_pnl": 0.0}
+{"type": "settle", "ts": "2026-10-13T15:41:50.669682+00:00", "market_id": "5444139", "outcome": 0, "maker_filled": 0, "maker_pnl": -0.0}
+{"type": "settle", "ts": "2026-10-13T15:41:51.253723+00:00", "market_id": "5444140", "outcome": 1, "taker_pnl": 4.52, "maker_filled": 1.5938, "maker_pnl": 0.5259}
+{"type": "settle", "ts": "2026-10-13T15:41:52.152299+00:00", "market_id": "5444141", "outcome": 1, "taker_pnl": 5.6416, "maker_filled": 1.74, "maker_pnl": 0.6612}
+{"type": "settle", "ts": "2026-10-13T15:41:52.710834+00:00", "market_id": "5444143", "outcome": 1, "maker_filled": 0, "maker_pnl": -0.0}
+{"type": "settle", "ts": "2026-10-13T15:41:53.520102+00:00", "market_id": "5444145", "outcome": 1, "maker_filled": 0, "maker_pnl": -0.0}
+{"type": "settle", "ts": "2026-10-13T15:41:54.061947+00:00", "market_id": "5444146", "outcome": 1, "maker_filled": 0, "maker_pnl": 0.0}
+{"type": "settle", "ts": "2026-10-13T15:41:54.686981+00:00", "market_id": "5444147", "outcome": 1}
+{"type": "settle", "ts": "2026-10-13T15:41:54.921298+00:00", "market_id": "5444150", "outcome": 1, "maker_filled": 0, "maker_pnl": -0.0}
+{"type": "settle", "ts": "2026-10-13T15:41:55.488013+00:00", "market_id": "5444152", "outcome": 0}
+{"type": "settle", "ts": "2026-10-13T15:41:56.112963+00:00", "market_id": "5444155", "outcome": 0, "maker_filled": 0, "maker_pnl": -0.0}
+{"type": "forecast", "ts": "2026-10-13T15:42:55.931095+00:00", "event_id": "1178076", "title": "What will Trump say during his Midterm Rally in Alaska?", "kind": "trump-rally", "start": "2026-10-13T19:30:00-04:00", "market_id": "5650374", "condition_id": "0x6f451139fbec392ca30e245697d846f7690bedb84e12ded81dca9f05880d2c74", "tokens": {"Yes": "83400762332969581919356846142220524776862670482329167018821404087882906592248", "No": "12401165003173965613013174276537645413986528844893640593724273209344015707739"}, "question": "Will Trump say \"ICE\" during his Midterm Rally in Alaska?", "threshold": 1, "counts": [1, 1, 3, 1, 1, 1, 0, 1, 2, 0], "model_p": 0.8255, "k": 0.2, "market_p": 0.71, "blend_p": 0.7331, "books": {"Yes": {"bid": 0.65, "bid_size": 50.0, "ask": 0.77, "ask_size": 300.0}, "No": {"bid": 0.23, "bid_size": 300.0, "ask": 0.35, "ask_size": 50.0}}, "fee_rate": 0.04, "taker": null, "maker": null}
