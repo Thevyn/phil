@@ -39,3 +39,11 @@ python3 -m mention.backtest report
 python3 -m mention.paper run
 python3 -m mention.paper report
 ```
+
+## Decision rule (set 2026-10-13, before forward data)
+
+Judge the forward test once 30 events have settled, with `python3 -m mention.paper report`.
+- Continue if the blend's Brier beats the market's and taker ROI is positive.
+- Stop if the blend's Brier is worse than the market's and taker ROI is negative.
+- Mixed result: run 30 more events.
+- Parameters stay frozen until then.
