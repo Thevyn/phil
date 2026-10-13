@@ -11,6 +11,7 @@ import json
 import pathlib
 import re
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -33,6 +34,11 @@ def fetch(url, params=None, retries=3):
         try:
             with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60) as r:
                 return r.read().decode("utf-8", "replace")
+        except urllib.error.HTTPError as e:
+            if e.code == 404:
+                return ""  # listed but not published yet (Factbase indexes new speeches early): treat as empty
+            err = e
+            time.sleep(2 * (attempt + 1))
         except Exception as e:  # noqa: BLE001 - retry then surface
             err = e
             time.sleep(2 * (attempt + 1))
