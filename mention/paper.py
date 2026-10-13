@@ -35,7 +35,13 @@ def now():
 
 
 def load():
-    return [json.loads(line) for line in JOURNAL.open()] if JOURNAL.exists() else []
+    return first_per_market([json.loads(line) for line in JOURNAL.open()] if JOURNAL.exists() else [])
+
+
+def first_per_market(rows):
+    """Local and GitHub runners may both journal a market (union-merged); the first row of each type counts."""
+    seen = set()
+    return [r for r in rows if (key := (r["type"], r["market_id"])) not in seen and not seen.add(key)]
 
 
 def append(rows):
@@ -181,6 +187,9 @@ def demo():
     taker, maker = plan(0.41, books, 0.04)  # inside the spread: no taker edge
     assert taker is None
     assert plan(0.952, {"Yes": ((0.96, 9), (0.98, 9)), "No": ((0.01, 9), (0.04, 9))}, 0.04)[1] is None  # 0.018 floors below the 0.02 min
+    assert [r["n"] for r in first_per_market([{"type": "forecast", "market_id": "1", "n": 1},
+                                              {"type": "forecast", "market_id": "1", "n": 2},
+                                              {"type": "settle", "market_id": "1", "n": 3}])] == [1, 3]
     f = {"taker": {"side": "No", "price": 0.6, "shares": 10, "fee": 0.1}, "maker": None, "market_id": "1"}
     assert settle(f, 0)["taker_pnl"] == 3.9
 

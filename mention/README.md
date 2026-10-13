@@ -19,7 +19,10 @@ Transcripts are cached in `mention/.cache/` and never committed.
 - `corpus.py` picks comparable past transcripts for an event.
 - `model.py` turns per-transcript counts into a probability and blends it with the market.
 - `backtest.py` scores the model on closed markets at a pre-event price snapshot, walk-forward.
-- `paper.py` is the forward test, run hourly by `.github/workflows/mention-paper.yml`, journal in `mention/journal/paper.jsonl`.
+- `paper.py` is the forward test, journal in `mention/journal/paper.jsonl`.
+- `tick.sh` runs one forward-test tick and pushes the journal.
+  It runs hourly on the operator's Mac (launchd agent `no.moth.mention-paper`, from a dedicated clone in `~/.phil-paper`) and on `.github/workflows/mention-paper.yml` as a backup, since GitHub skips many scheduled runs.
+  The journal is union-merged (`.gitattributes`) and only the first row per market and type counts, so the two runners cannot double-count.
 
 ## Honest-simulation rules
 
