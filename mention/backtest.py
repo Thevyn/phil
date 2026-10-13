@@ -83,14 +83,16 @@ def event_ci(rows, fn, n=2000):
     return means[int(0.025 * n)], means[int(0.975 * n)]
 
 
-def pooled_ci(bets, n=2000):
-    """95% CI of pooled ROI (total PnL / bets), resampling whole events."""
+def pooled_ci(legs, n=2000):
+    """95% CI of pooled ROI (total PnL / total staked) over (event_id, pnl, stake) legs, resampling whole events."""
     groups = {}
-    for r, x in bets:
-        groups.setdefault(r["event_id"], []).append(x)
+    for ev, pnl, stake in legs:
+        g = groups.setdefault(ev, [0.0, 0.0])
+        g[0] += pnl
+        g[1] += stake
     g = list(groups.values())
     random.seed(0)
-    rois = sorted(sum(map(sum, s)) / sum(map(len, s)) for s in (random.choices(g, k=len(g)) for _ in range(n)))
+    rois = sorted(sum(p for p, _ in s) / sum(c for _, c in s) for s in (random.choices(g, k=len(g)) for _ in range(n)))
     return rois[int(0.025 * n)], rois[int(0.975 * n)]
 
 
@@ -146,7 +148,7 @@ def report():
                 print(f"  {label:9} no trades")
                 continue
             roi = sum(x for _, x in bets) / len(bets)
-            lo, hi = pooled_ci(bets)
+            lo, hi = pooled_ci([(r["event_id"], x, 1) for r, x in bets])
             print(f"  {label:10} {len(bets):4} bets on {len(by_event([r for r, _ in bets])):3} events  "
                   f"ROI {roi:+.1%}  95% CI [{lo:+.1%}, {hi:+.1%}]")
     wf = walk_forward(rows)
@@ -164,7 +166,7 @@ def report():
     print("\nBaseline without the model: buy No on every market (taker, 1c half-spread + fee).")
     wf = walk_forward(rows)
     bets = [(r, x) for r in wf if (x := trade(r, 0.0, 0.01, False)) is not None]  # p=0: always the No side
-    lo, hi = pooled_ci(bets)
+    lo, hi = pooled_ci([(r["event_id"], x, 1) for r, x in bets])
     print(f"  ALL out-of-sample markets: {len(bets)} bets, ROI {sum(x for _, x in bets) / len(bets):+.1%}"
           f"  95% CI [{lo:+.1%}, {hi:+.1%}]")
     print("\nCalibration of the pre-event market price:")

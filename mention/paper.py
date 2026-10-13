@@ -18,7 +18,7 @@ import sys
 
 from . import events, model, rules
 from .corpus import Corpus
-from .backtest import by_event, event_ci
+from .backtest import by_event, pooled_ci
 
 JOURNAL = pathlib.Path(__file__).parent / "journal" / "paper.jsonl"
 PARAMS = json.loads((pathlib.Path(__file__).parent / "params.json").read_text())
@@ -169,9 +169,9 @@ def report():
         cost = {id(r): (r["taker"]["shares"] * r["taker"]["price"] + r["taker"]["fee"]) if kind == "taker"
                 else r["maker_filled"] * r["maker"]["limit"] for r in legs}
         pnl = sum(r[f"{kind}_pnl"] for r in legs)
-        lo, hi = event_ci(legs, lambda r: r[f"{kind}_pnl"] / cost[id(r)])
+        lo, hi = pooled_ci([(r["event_id"], r[f"{kind}_pnl"], cost[id(r)]) for r in legs])
         print(f"  {kind}: {len(legs)} fills on {len(by_event(legs))} events, PnL ${pnl:+.2f} on "
-              f"${sum(cost.values()):.2f} ({pnl / sum(cost.values()):+.1%}), per-event ROI 95% CI [{lo:+.1%}, {hi:+.1%}]")
+              f"${sum(cost.values()):.2f} ({pnl / sum(cost.values()):+.1%}), 95% CI [{lo:+.1%}, {hi:+.1%}]")
 
 
 def demo():
