@@ -457,3 +457,13 @@
 {"type": "forecast", "ts": "2026-10-20T23:42:49.834991+00:00", "event_id": "1224663", "title": "What will Trump say during his Midterm Rally in South Carolina?", "kind": "trump-rally", "start": "2026-10-21T19:00:00-04:00", "market_id": "5979826", "condition_id": "0x8a50a8b45e7fceeb74b4c95d7773a18056e8292880ae38a187e667c1cc9f080a", "tokens": {"Yes": "110839112553880657578589235816457226328704149895574813530605765159948317981253", "No": "12782481752251420045945398294798813281867861825442782973048765448492395669383"}, "question": "Will Trump say \"Bitcoin\" or \"Crypto\" or \"Cryptocurrency\" during his Midterm Rally in South Carolina?", "threshold": 1, "counts": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "model_p": 0.0787, "k": 0.2, "market_p": 0.024, "blend_p": 0.0349, "books": {"Yes": {"bid": 0.009, "bid_size": 32.97, "ask": 0.039, "ask_size": 40.0}, "No": {"bid": 0.961, "bid_size": 40.0, "ask": 0.991, "ask_size": 32.97}}, "fee_rate": 0, "taker": null, "maker": null}
 {"type": "settle", "ts": "2026-10-21T00:42:06.100657+00:00", "market_id": "5837803", "outcome": 0, "maker_filled": 0, "maker_pnl": 0.0}
 {"type": "settle", "ts": "2026-10-21T02:41:32.009666+00:00", "market_id": "5950951", "outcome": 1}
+{"type": "settle", "ts": "2026-10-21T03:41:39.930842+00:00", "market_id": "5950948", "outcome": 0}
+{"type": "settle", "ts": "2026-10-21T03:41:40.326950+00:00", "market_id": "5950950", "outcome": 0, "maker_filled": 32.2581, "maker_pnl": -10.0}
+{"type": "settle", "ts": "2026-10-21T03:41:40.804464+00:00", "market_id": "5950952", "outcome": 1}
+{"type": "settle", "ts": "2026-10-21T03:41:40.961502+00:00", "market_id": "5950953", "outcome": 0}
+{"type": "settle", "ts": "2026-10-21T03:41:41.124193+00:00", "market_id": "5950954", "outcome": 0}
+{"type": "settle", "ts": "2026-10-21T03:41:41.801757+00:00", "market_id": "5950957", "outcome": 0, "maker_filled": 12.3457, "maker_pnl": 2.3457}
+{"type": "settle", "ts": "2026-10-21T03:41:42.328125+00:00", "market_id": "5950958", "outcome": 0}
+{"type": "settle", "ts": "2026-10-21T03:41:42.778037+00:00", "market_id": "5950960", "outcome": 0}
+{"type": "settle", "ts": "2026-10-21T03:41:42.937110+00:00", "market_id": "5950961", "outcome": 0}
+{"type": "settle", "ts": "2026-10-21T03:41:43.178592+00:00", "market_id": "5950962", "outcome": 0}
