@@ -554,3 +554,12 @@
 {"type": "settle", "ts": "2026-10-22T01:41:46.763805+00:00", "market_id": "5979812", "outcome": 1}
 {"type": "settle", "ts": "2026-10-22T01:41:48.016485+00:00", "market_id": "5979818", "outcome": 1}
 {"type": "settle", "ts": "2026-10-22T01:41:49.631949+00:00", "market_id": "5979825", "outcome": 1}
+{"type": "settle", "ts": "2026-10-22T02:41:51.750416+00:00", "market_id": "5979807", "outcome": 1}
+{"type": "settle", "ts": "2026-10-22T02:41:52.442799+00:00", "market_id": "5979811", "outcome": 1}
+{"type": "settle", "ts": "2026-10-22T02:41:52.676426+00:00", "market_id": "5979813", "outcome": 1}
+{"type": "settle", "ts": "2026-10-22T02:41:53.117159+00:00", "market_id": "5979815", "outcome": 1}
+{"type": "settle", "ts": "2026-10-22T02:41:53.354323+00:00", "market_id": "5979816", "outcome": 1}
+{"type": "settle", "ts": "2026-10-22T02:41:54.030255+00:00", "market_id": "5979820", "outcome": 1}
+{"type": "settle", "ts": "2026-10-22T02:41:54.278003+00:00", "market_id": "5979821", "outcome": 1}
+{"type": "settle", "ts": "2026-10-22T02:41:54.513145+00:00", "market_id": "5979822", "outcome": 1}
+{"type": "settle", "ts": "2026-10-22T02:41:54.739360+00:00", "market_id": "5979823", "outcome": 1}
