@@ -913,3 +913,4 @@
 {"type": "settle", "ts": "2026-10-28T00:42:08.004975+00:00", "market_id": "6096284", "outcome": 0, "maker_filled": 0, "maker_pnl": 0.0}
 {"type": "settle", "ts": "2026-10-28T00:42:08.551463+00:00", "market_id": "6096288", "outcome": 1}
 {"type": "settle", "ts": "2026-10-28T00:42:08.786203+00:00", "market_id": "6096290", "outcome": 0, "taker_pnl": 13.8095, "maker_filled": 0, "maker_pnl": 0.0}
+{"type": "settle", "ts": "2026-10-28T02:24:26.961356+00:00", "market_id": "6279815", "outcome": 1}
