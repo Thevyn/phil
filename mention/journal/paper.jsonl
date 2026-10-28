@@ -975,3 +975,15 @@
 {"type": "forecast", "ts": "2026-10-28T21:42:47.545216+00:00", "event_id": "1272451", "title": "What will Amazon say during their next earnings call?", "kind": "earnings", "start": "2026-10-29T17:00:00-04:00", "market_id": "6345957", "condition_id": "0x54b85c96ccc689443e4874d6015d4e3798224c6604317c6b2d5dc70687c6afdc", "tokens": {"Yes": "15114126383140408450020484490817836783225353578135849521483314865885789350331", "No": "90675494897425772173667934957768298277570275822516627910037713642455904425913"}, "question": "Will Amazon say \"Layoff / Job Cut\" during earnings call?", "threshold": 1, "counts": [0, 0, 0, 0, 0, 0], "model_p": 0.097, "k": 0.2, "market_p": 0.135, "blend_p": 0.1274, "books": {"Yes": {"bid": 0.04, "bid_size": 7.95, "ask": 0.23, "ask_size": 75.0}, "No": {"bid": 0.77, "bid_size": 75.0, "ask": 0.96, "ask_size": 7.95}}, "fee_rate": 0.0, "taker": null, "maker": null}
 {"type": "settle", "ts": "2026-10-28T22:42:09.147454+00:00", "market_id": "6253955", "outcome": 1, "maker_filled": 0, "maker_pnl": -0.0}
 {"type": "settle", "ts": "2026-10-28T22:42:10.136281+00:00", "market_id": "6253958", "outcome": 1}
+{"type": "settle", "ts": "2026-10-28T23:41:44.165973+00:00", "market_id": "6253951", "outcome": 1, "taker_pnl": -10.0, "maker_filled": 0, "maker_pnl": -0.0}
+{"type": "settle", "ts": "2026-10-28T23:41:44.881809+00:00", "market_id": "6253952", "outcome": 1, "maker_filled": 0, "maker_pnl": -0.0}
+{"type": "settle", "ts": "2026-10-28T23:41:45.478257+00:00", "market_id": "6253953", "outcome": 1}
+{"type": "settle", "ts": "2026-10-28T23:41:45.695821+00:00", "market_id": "6253954", "outcome": 1, "taker_pnl": -10.0, "maker_filled": 0, "maker_pnl": -0.0}
+{"type": "settle", "ts": "2026-10-28T23:41:46.354287+00:00", "market_id": "6253956", "outcome": 1, "taker_pnl": -0.9, "maker_filled": 0, "maker_pnl": -0.0}
+{"type": "settle", "ts": "2026-10-28T23:41:47.069102+00:00", "market_id": "6253957", "outcome": 0, "maker_filled": 27.77, "maker_pnl": -1.1108}
+{"type": "settle", "ts": "2026-10-28T23:41:47.772165+00:00", "market_id": "6253959", "outcome": 1, "maker_filled": 0, "maker_pnl": -0.0}
+{"type": "settle", "ts": "2026-10-28T23:41:48.299732+00:00", "market_id": "6253960", "outcome": 0, "maker_filled": 0, "maker_pnl": 0.0}
+{"type": "settle", "ts": "2026-10-28T23:41:48.984922+00:00", "market_id": "6253961", "outcome": 0, "maker_filled": 0, "maker_pnl": 0.0}
+{"type": "settle", "ts": "2026-10-28T23:41:49.521177+00:00", "market_id": "6253962", "outcome": 0}
+{"type": "settle", "ts": "2026-10-28T23:41:49.750670+00:00", "market_id": "6253963", "outcome": 0, "taker_pnl": -10.0, "maker_filled": 0, "maker_pnl": -0.0}
+{"type": "settle", "ts": "2026-10-28T23:41:51.011299+00:00", "market_id": "6279828", "outcome": 1}
