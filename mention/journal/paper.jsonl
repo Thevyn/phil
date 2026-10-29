@@ -999,3 +999,7 @@
 {"type": "settle", "ts": "2026-10-29T00:42:01.553957+00:00", "market_id": "6279835", "outcome": 1, "maker_filled": 0, "maker_pnl": -0.0}
 {"type": "settle", "ts": "2026-10-29T00:42:02.115059+00:00", "market_id": "6279836", "outcome": 1}
 {"type": "settle", "ts": "2026-10-29T01:52:15.455124+00:00", "market_id": "6299853", "outcome": 1}
+{"type": "settle", "ts": "2026-10-29T02:42:18.499216+00:00", "market_id": "6299854", "outcome": 1}
+{"type": "settle", "ts": "2026-10-29T02:42:18.731049+00:00", "market_id": "6299855", "outcome": 1}
+{"type": "settle", "ts": "2026-10-29T02:42:19.400294+00:00", "market_id": "6299858", "outcome": 1}
+{"type": "settle", "ts": "2026-10-29T02:42:19.841423+00:00", "market_id": "6299860", "outcome": 1}
