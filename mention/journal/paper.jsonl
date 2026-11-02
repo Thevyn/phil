@@ -1174,3 +1174,19 @@
 {"type": "settle", "ts": "2026-11-02T05:41:53.917373+00:00", "market_id": "6477415", "outcome": 1}
 {"type": "settle", "ts": "2026-11-02T05:41:54.908748+00:00", "market_id": "6477418", "outcome": 1}
 {"type": "settle", "ts": "2026-11-02T05:41:55.139951+00:00", "market_id": "6477419", "outcome": 1}
+{"type": "settle", "ts": "2026-11-02T06:26:18.798208+00:00", "market_id": "6477400", "outcome": 0}
+{"type": "settle", "ts": "2026-11-02T06:26:18.815480+00:00", "market_id": "6477403", "outcome": 1}
+{"type": "settle", "ts": "2026-11-02T06:26:18.985247+00:00", "market_id": "6477404", "outcome": 0, "maker_filled": 0, "maker_pnl": 0.0}
+{"type": "settle", "ts": "2026-11-02T06:26:19.469220+00:00", "market_id": "6477405", "outcome": 0}
+{"type": "settle", "ts": "2026-11-02T06:26:19.640939+00:00", "market_id": "6477406", "outcome": 0, "maker_filled": 0, "maker_pnl": 0.0}
+{"type": "settle", "ts": "2026-11-02T06:26:20.044062+00:00", "market_id": "6477407", "outcome": 0}
+{"type": "settle", "ts": "2026-11-02T06:26:20.212292+00:00", "market_id": "6477408", "outcome": 0}
+{"type": "settle", "ts": "2026-11-02T06:26:20.385779+00:00", "market_id": "6477410", "outcome": 0}
+{"type": "settle", "ts": "2026-11-02T06:26:20.403498+00:00", "market_id": "6477411", "outcome": 0}
+{"type": "settle", "ts": "2026-11-02T06:26:20.570873+00:00", "market_id": "6477412", "outcome": 0}
+{"type": "settle", "ts": "2026-11-02T06:26:20.739113+00:00", "market_id": "6477413", "outcome": 0}
+{"type": "settle", "ts": "2026-11-02T06:26:20.906039+00:00", "market_id": "6477414", "outcome": 0}
+{"type": "settle", "ts": "2026-11-02T06:26:21.074997+00:00", "market_id": "6477416", "outcome": 0}
+{"type": "settle", "ts": "2026-11-02T06:26:21.243958+00:00", "market_id": "6477417", "outcome": 0}
+{"type": "settle", "ts": "2026-11-02T06:26:21.414518+00:00", "market_id": "6477420", "outcome": 0}
+{"type": "settle", "ts": "2026-11-02T06:26:21.579259+00:00", "market_id": "6477421", "outcome": 0}
