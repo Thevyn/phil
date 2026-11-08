@@ -106,18 +106,19 @@ def price_before(token, when):
 
 
 def trades(condition_id):
-    """All trades of a market as [timestamp, asset, price, size], newest first (cached once closed)."""
+    """All trades of a market as [timestamp, asset, price, size], newest first (cached; call only once closed)."""
     path = sources.CACHE / f"trades/{condition_id}.json.gz"
     if path.exists():
         with gzip.open(path, "rt") as f:
             return json.load(f)
-    out = []
-    for offset in range(0, 10000, 1000):  # data-api caps offset; enough for pre-event trading
-        page = pmapi.get_json("https://data-api.polymarket.com/trades",
-                              {"market": condition_id, "limit": 1000, "offset": offset})
-        out += [[t["timestamp"], t["asset"], float(t["price"]), float(t["size"])] for t in page]
-        if len(page) < 1000:
+    out, params = [], {"condition": condition_id, "limit": 1000}
+    for _ in range(50):  # Data API v2 (v1 retired Nov 2026): cursor pages of at most 1000
+        page = pmapi.get_json("https://data-api.polymarket.com/v2/trades", params)
+        out += [[t["timestamp"], t["token_id"], float(t["price"]), float(t["size"])] for t in page["data"]]
+        cursor = page["pagination"].get("next_cursor")
+        if not page["pagination"].get("has_more") or not cursor:
             break
+        params = {**params, "cursor": cursor}
     if out:
         path.parent.mkdir(parents=True, exist_ok=True)
         with gzip.open(path, "wt") as f:

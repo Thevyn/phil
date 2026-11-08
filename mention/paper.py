@@ -27,7 +27,6 @@ STAKE = 10.0
 MARGIN = 0.03
 MIN_EDGE = 0.02
 MAX_SPREAD = 0.10  # wider Yes book: the mid is not a market estimate, so no orders
-TRADES = "https://data-api.polymarket.com/trades"
 
 
 def now():
@@ -106,9 +105,8 @@ def maker_fill(f):
     token = f["tokens"][o["side"]]
     t0 = dt.datetime.fromisoformat(f["ts"]).timestamp()
     t1 = dt.datetime.fromisoformat(f["start"]).timestamp()
-    trades = events.pmapi.get_json(TRADES, {"market": f["condition_id"], "limit": 10000})
-    traded = sum(float(t["size"]) for t in trades
-                 if t["asset"] == token and t0 < t["timestamp"] < t1 and float(t["price"]) < o["limit"])
+    traded = sum(size for ts, asset, price, size in events.trades(f["condition_id"])
+                 if asset == token and t0 < ts < t1 and price < o["limit"])
     return min(o["shares"], traded)
 
 
