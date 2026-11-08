@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: write
+  issues: write  # failure alert below
 
 concurrency:
   group: mention-paper
@@ -49,3 +50,21 @@ jobs:
           git -c user.name="github-actions[bot]" -c user.email="41898333+github-actions[bot]@users.noreply.github.com" \
             commit -m "mention: paper tick $(date -u +%Y-%m-%dT%H:%MZ)"
           git pull --rebase --quiet && git push
+      # Alert: one open issue while ticks fail (GitHub notifies the owner), closed on the next green tick.
+      - name: Open alert issue on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          url="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          n=$(gh issue list --state open --search "in:title Mention paper tick failing" --json number -q '.[0].number')
+          if [ -n "$n" ]; then gh issue comment "$n" --body "Failed again: $url"
+          else gh issue create --title "Mention paper tick failing" --body "Tick failed: $url"; fi
+      - name: Close alert issue on success
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for n in $(gh issue list --state open --search "in:title Mention paper tick failing" --json number -q '.[].number'); do
+            gh issue close "$n" --comment "Green again: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          done
