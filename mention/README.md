@@ -51,7 +51,7 @@ Judge the forward test once 30 events have settled, with `python3 -m mention.pap
 ## Shadow test (started 2026-11-10, log only)
 
 Does recent news improve on the blend?
-After each tick the Claude routine runs `python3 -m mention.shadow pending`, researches each upcoming event with [last30days](https://github.com/mvanhorn/last30days-skill) (`mention/shadow.sh research`, pinned commit, keyless sources only: Hacker News, Polymarket, keyless web; Reddit blocks it), and journals its own probability per market in `journal/shadow.jsonl` at least 10 minutes before the event starts.
+After each tick the Claude routine runs `python3 -m mention.shadow pending`, researches each upcoming event with [last30days](https://github.com/mvanhorn/last30days-skill) (`mention/shadow.sh research`, pinned commit, every source that needs no login: Reddit, Hacker News, YouTube incl. transcripts, Polymarket, DripStack, StockTwits for tickers, keyless web; run in an empty env so no keys or cookies are used), and journals its own probability per market in `journal/shadow.jsonl` at least 10 minutes before the event starts.
 Shadow estimates are never traded and do not change the forward test above.
 `python3 -m mention.shadow report` compares the shadow Brier with the market and the blend on settled markets.
 Judge at 30 settled events: worth a pre-registered variant only if shadow beats blend with the event CI below zero.

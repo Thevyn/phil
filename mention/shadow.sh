@@ -1,5 +1,5 @@
 #!/bin/bash
-# Shadow test helper for the Claude routine (see mention/shadow.py). Keyless sources only, nothing traded.
+# Shadow test helper for the Claude routine (see mention/shadow.py). No-login sources only, nothing traded.
 #   bash mention/shadow.sh research "QUERY"   # last30days brief of the past 7 days (stdout)
 #   bash mention/shadow.sh commit             # commit and push mention/journal/shadow.jsonl
 set -uo pipefail
@@ -15,10 +15,17 @@ research)
   PY=$(for p in python3.14 python3.13 python3.12 python3; do
     command -v $p >/dev/null && $p -c 'import sys; sys.exit(sys.version_info < (3, 12))' && { echo $p; break; }; done)
   [ -n "$PY" ] || { echo "need python >= 3.12" >&2; exit 1; }
-  # Empty env: no API keys or cookies can leak in, so only keyless sources run.
-  env -i HOME=/tmp/last30days-home PATH="$PATH" LAST30DAYS_MEMORY_DIR=/tmp/last30days-out \
-    "$PY" -I "$DIR/skills/last30days/scripts/last30days.py" --research-only --search reddit,hackernews,polymarket \
-    --web-backend keyless --no-browser-cookies --quick --days 7 --emit compact --save-dir "" "$2" 2>/dev/null
+  if ! command -v yt-dlp >/dev/null; then  # YouTube search and transcripts, keyless
+    [ -x /tmp/last30days-venv/bin/yt-dlp ] || { "$PY" -m venv /tmp/last30days-venv \
+      && /tmp/last30days-venv/bin/pip install -q yt-dlp==2026.10.21; } >&2 || echo "yt-dlp unavailable, no YouTube" >&2
+    PATH="/tmp/last30days-venv/bin:$PATH"
+  fi
+  # Empty env: no API keys or cookies exist, so every source that needs no login runs (Reddit, HN, Polymarket,
+  # YouTube, GitHub, StockTwits for tickers, keyless web) plus opt-in DripStack newsletters.
+  env -i HOME=/tmp/last30days-home PATH="$PATH" LAST30DAYS_MEMORY_DIR=/tmp/last30days-out INCLUDE_SOURCES=dripstack \
+    "$PY" -I "$DIR/skills/last30days/scripts/last30days.py" --research-only --search reddit,hackernews,polymarket,youtube,dripstack,grounding \
+    --web-backend keyless --no-browser-cookies --days 7 --emit compact --save-dir "" "$2" 2>/tmp/last30days-err.txt
+  grep -E "Research complete|Sources:" /tmp/last30days-err.txt >&2
   ;;
 commit)
   git add mention/journal/shadow.jsonl
