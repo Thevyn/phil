@@ -1317,3 +1317,12 @@
 {"type": "forecast", "ts": "2026-11-11T20:46:37.769513+00:00", "event_id": "1327800", "title": "What will Cisco say during their next earnings call?", "kind": "earnings", "start": "2026-11-12T16:30:00-04:00", "market_id": "6763383", "condition_id": "0xdd62c9d54db15653c51c90384b47022a413fd07caaaa4c60bbce88609c095f32", "tokens": {"Yes": "9413242429764926661308400343697441555609469677448592114014641594622607658457", "No": "6866401104429415952478281883235775691135945110351229890970943434349662607712"}, "question": "Will Cisco say \"EBITDA\" during earnings call?", "threshold": 1, "counts": [0, 0, 0], "model_p": 0.14, "k": 0.2, "market_p": 0.046, "blend_p": 0.0648, "books": {"Yes": {"bid": 0.033, "bid_size": 50.0, "ask": 0.059, "ask_size": 120.0}, "No": {"bid": 0.941, "bid_size": 120.0, "ask": 0.967, "ask_size": 50.0}}, "fee_rate": 0.04, "taker": null, "maker": {"side": "Yes", "limit": 0.03, "shares": 333.3333}}
 {"type": "settle", "ts": "2026-11-12T23:42:05.151722+00:00", "market_id": "6763377", "outcome": 1}
 {"type": "settle", "ts": "2026-11-12T23:42:06.024541+00:00", "market_id": "6763381", "outcome": 1, "maker_filled": 0, "maker_pnl": -0.0}
+{"type": "settle", "ts": "2026-11-13T00:41:54.593543+00:00", "market_id": "6763373", "outcome": 1}
+{"type": "settle", "ts": "2026-11-13T00:41:54.811728+00:00", "market_id": "6763374", "outcome": 1, "maker_filled": 0, "maker_pnl": -0.0}
+{"type": "settle", "ts": "2026-11-13T00:41:55.303764+00:00", "market_id": "6763375", "outcome": 1}
+{"type": "settle", "ts": "2026-11-13T00:41:55.529257+00:00", "market_id": "6763376", "outcome": 0}
+{"type": "settle", "ts": "2026-11-13T00:41:55.747633+00:00", "market_id": "6763378", "outcome": 1, "maker_filled": 0, "maker_pnl": -0.0}
+{"type": "settle", "ts": "2026-11-13T00:41:56.264070+00:00", "market_id": "6763379", "outcome": 0}
+{"type": "settle", "ts": "2026-11-13T00:41:56.476837+00:00", "market_id": "6763380", "outcome": 0, "maker_filled": 0, "maker_pnl": -0.0}
+{"type": "settle", "ts": "2026-11-13T00:41:56.974689+00:00", "market_id": "6763382", "outcome": 0}
+{"type": "settle", "ts": "2026-11-13T00:41:57.186456+00:00", "market_id": "6763383", "outcome": 0, "maker_filled": 0, "maker_pnl": -0.0}
