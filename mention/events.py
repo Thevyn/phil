@@ -14,15 +14,18 @@ from . import rules, sources  # noqa: E402
 ET = dt.timezone(dt.timedelta(hours=-4))  # ponytail: fixed EDT offset; EST months are off by 1h, fine for a T-1h snapshot
 
 
+PAGE = 50  # Gamma's max page size since 2026-11-12 (limit > 50 returns 406 Not Acceptable)
+
+
 def fetch_events(closed):
     out, off = [], 0
     while True:
         page = pmapi.get_json(pmapi.GAMMA + "/events", {"tag_slug": "mention-markets", "closed": str(closed).lower(),
-                                                        "limit": 100, "offset": off})
+                                                        "limit": PAGE, "offset": off})
         out += page
-        if len(page) < 100:
+        if len(page) < PAGE:
             return out
-        off += 100
+        off += PAGE
 
 
 def kind(title):
