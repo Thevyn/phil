@@ -9,9 +9,6 @@ import pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent / "core"))
 import pmapi  # noqa: E402
 
-# Gamma answers 406 Not Acceptable from cloud runners since 2026-11-12; say we accept JSON (UA unchanged).
-pmapi.UA["Accept"] = "application/json"
-
 from . import rules, sources  # noqa: E402
 
 ET = dt.timezone(dt.timedelta(hours=-4))  # ponytail: fixed EDT offset; EST months are off by 1h, fine for a T-1h snapshot
