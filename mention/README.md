@@ -48,6 +48,10 @@ Judge the forward test once 30 events have settled, with `python3 -m mention.pap
 - Mixed result: run 30 more events.
 - Parameters stay frozen until then.
 
+Plumbing fixes during the forward test (no parameter changes):
+- 2026-11-08: trades from Data API v2 (v1 retired). 2026-11-15: Gamma events paged at 50 (limit 100 returns 406).
+- 2026-11-17: Fool company slugs matched by ticker across renames ("walt-disney-dis" and "disney-dis"). Before this, renamed companies had fewer comparables and could be skipped; the backtest had the same gap.
+
 ## Shadow test (started 2026-11-10, log only)
 
 Does recent news improve on the blend?

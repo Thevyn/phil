@@ -164,4 +164,7 @@ def demo():
 
 if __name__ == "__main__":
     demo()
+    renamed = [{"company": c} for c in ("walt-disney-dis", "disney-dis", "disney-dis", "jpmorgan-jpm", "jpmorgan-chase-jpm")]
+    assert sources.match_company("Disney", renamed) == {"disney-dis", "walt-disney-dis"}
+    assert sources.match_company("JPMorgan", renamed) == {"jpmorgan-jpm", "jpmorgan-chase-jpm"}
     print("ok")

@@ -174,4 +174,6 @@ def match_company(name, index):
         return set()
     best = max(counts, key=counts.get)
     ticker = "-" + best.rsplit("-", 1)[-1]
-    return {c for c in counts if c.endswith(ticker) or best.startswith(c)}
+    # Same ticker under an older name counts too ("walt-disney-dis" before "disney-dis").
+    same_ticker = {r["company"] for r in index if r["company"].endswith(ticker)} if "-" in best else set()
+    return same_ticker | {c for c in counts if c.endswith(ticker) or best.startswith(c)}
