@@ -1353,3 +1353,4 @@
 {"type": "settle", "ts": "2026-11-18T01:41:50.850716+00:00", "market_id": "7003392", "outcome": 0}
 {"type": "settle", "ts": "2026-11-18T01:41:51.070177+00:00", "market_id": "7003395", "outcome": 0, "maker_filled": 0, "maker_pnl": 0.0}
 {"type": "settle", "ts": "2026-11-18T01:41:51.540771+00:00", "market_id": "7003397", "outcome": 0, "maker_filled": 0, "maker_pnl": 0.0}
+{"type": "settle", "ts": "2026-11-18T04:33:17.600247+00:00", "market_id": "7003385", "outcome": 0, "taker_pnl": -8.766, "maker_filled": 0, "maker_pnl": -0.0}
