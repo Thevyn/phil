@@ -1,5 +1,6 @@
 """Comparable past transcripts for an event, and the event's own transcript (for checking the matcher)."""
 import datetime as dt
+import functools
 import re
 
 from . import events, sources
@@ -16,10 +17,17 @@ class Corpus:
     def __init__(self, since):
         """`since`: YYYY-MM-DD, earliest event date to cover. Factbase goes back 120 days
         before it (enough for the latest comparables), Fool two years (8 quarterly calls)."""
-        day = dt.date.fromisoformat(since)
-        self.factbase = sources.factbase_index((day - dt.timedelta(days=120)).isoformat())
-        self.fool = sources.fool_index((day - dt.timedelta(days=730)).isoformat()[:7])
+        self.day = dt.date.fromisoformat(since)
         self._company = {}
+
+    # Fetched on first use, so an outage of one source only fails the events that need it.
+    @functools.cached_property
+    def factbase(self):
+        return sources.factbase_index((self.day - dt.timedelta(days=120)).isoformat())
+
+    @functools.cached_property
+    def fool(self):
+        return sources.fool_index((self.day - dt.timedelta(days=730)).isoformat()[:7])
 
     def company_slug(self, name):
         if name not in self._company:

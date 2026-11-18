@@ -149,11 +149,19 @@ def run():
         return
     today = now().date()
     corpus = Corpus(today.isoformat())
+    failed = 0
     for ev in due:
-        new = [r for r in forecast(corpus, ev) if r["market_id"] not in forecasted]
+        try:  # one broken source (e.g. Factbase down) must not block unrelated events
+            new = [r for r in forecast(corpus, ev) if r["market_id"] not in forecasted]
+        except Exception as e:
+            failed += 1
+            print(f"{ev['title']}: FAILED {type(e).__name__}: {e}"[:300])
+            continue
         append(new)
         print(f"{ev['title']}: {len(new)} forecasts, {sum(1 for r in new if r['taker'])} taker, "
               f"{sum(1 for r in new if r['maker'])} maker")
+    if failed:
+        sys.exit(f"{failed} of {len(due)} due events failed")
 
 
 def report():
