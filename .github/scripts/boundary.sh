@@ -23,6 +23,16 @@ fail=0
 for sha in $COMMITS; do
   subject=$(git log -1 --format=%s "$sha")
   [[ "$subject" == operator:* ]] && continue
+  # Routine autofixes (mention/autofix.sh) may only touch data fetching and parsing.
+  if [[ "$subject" == "mention: autofix:"* || "$subject" == 'Revert "mention: autofix:'* ]]; then
+    extra=$(git diff-tree --no-commit-id --name-only -r "$sha" \
+      | grep -vE '^mention/(sources|events)\.py$|^mention/README\.md$' || true)
+    if [[ -n "$extra" ]]; then
+      echo "::error::autofix commit $sha ('$subject') touches files outside the autofix allowlist:"
+      echo "$extra" | sed 's/^/    /'
+      fail=1
+    fi
+  fi
   # GitHub web-flow commits (committer = GitHub) are a human in the UI, not
   # the agent — the agents push over git and can never have this committer.
   committer=$(git log -1 --format=%ce "$sha")
