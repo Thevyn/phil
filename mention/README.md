@@ -51,6 +51,7 @@ Judge the forward test once 30 events have settled, with `python3 -m mention.pap
 Plumbing fixes during the forward test (no parameter changes):
 - 2026-11-08: trades from Data API v2 (v1 retired). 2026-11-15: Gamma events paged at 50 (limit 100 returns 406).
 - 2026-11-17: Fool company slugs matched by ticker across renames ("walt-disney-dis" and "disney-dis"). Before this, renamed companies had fewer comparables and could be skipped; the backtest had the same gap.
+- 2026-11-19: Roll Call retired the Factbase wp-json search and moved transcripts to client-side pages; index and segments now come from rollcall.com/api/factbase/transcripts (same documents and text). Ticks from 2026-11-18 00:44Z failed; one Trump event was missed, earnings kept running after the 2026-11-18 per-event isolation fix.
 
 ## Shadow test (started 2026-11-10, log only)
 

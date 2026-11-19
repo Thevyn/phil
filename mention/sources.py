@@ -17,7 +17,7 @@ import urllib.request
 
 CACHE = pathlib.Path(__file__).parent / ".cache"
 UA = {"User-Agent": "Mozilla/5.0 (compatible; phil-mention-research/0.1; +https://github.com/Thevyn/phil)"}
-FACTBASE_SEARCH = "https://rollcall.com/wp-json/factbase/v1/search"
+FACTBASE_SEARCH = "https://rollcall.com/api/factbase/transcripts"  # wp-json/factbase/v1/search retired 2026-11-18
 TRUMP = "Donald Trump"
 _last_fetch = [0.0]
 
@@ -78,7 +78,7 @@ def factbase_index(since):
     known = json.loads(path.read_text()) if path.exists() else {"docs": [], "complete_since": "9999"}
     topup = known["complete_since"] <= since
     ids = {d["id"] for d in known["docs"]} if topup else set()
-    params = {"media": "", "type": "", "sort": "date", "location": "all", "place": "all", "q": ""}
+    params = {"person": "trump", "sort": "desc"}
     docs, page = [], 1
     while True:
         data = json.loads(fetch(FACTBASE_SEARCH, {**params, "page": page}))["data"]
@@ -99,10 +99,10 @@ def factbase_index(since):
 def factbase_segments(doc):
     """[(speaker, text), ...] for one Factbase document."""
     def build():
-        page = fetch(doc["url"])
-        pairs = re.findall(r'<h2 class="text-md inline">(.*?)</h2>.*?'
-                           r'<div class=" flex-auto text-md text-gray-600 leading-loose">(.*?)</div>', page, re.S)
-        return [[_text(s), _text(t)] for s, t in pairs]
+        # Pages render client-side since Roll Call's 2026-11 redesign; the same JSON API feeds them.
+        slug = doc["url"].rstrip("/").rsplit("/", 1)[1]
+        segs = json.loads(fetch(FACTBASE_SEARCH, {"person": "trump", "slug": slug}))["data"]
+        return [[str(s["speaker"] or ""), _text(str(s["text"] or ""))] for s in segs]
     return _cached(f"factbase/{doc['id']}.json.gz", build)
 
 
