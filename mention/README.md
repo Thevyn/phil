@@ -53,6 +53,13 @@ Plumbing fixes during the forward test (no parameter changes):
 - 2026-11-17: Fool company slugs matched by ticker across renames ("walt-disney-dis" and "disney-dis"). Before this, renamed companies had fewer comparables and could be skipped; the backtest had the same gap.
 - 2026-11-19: Roll Call retired the Factbase wp-json search and moved transcripts to client-side pages; index and segments now come from rollcall.com/api/factbase/transcripts (same documents and text). Ticks from 2026-11-18 00:44Z failed; one Trump event was missed, earnings kept running after the 2026-11-18 per-event isolation fix.
 
+Autofix (from 2026-11-19): when a tick fails because a source changed (endpoint moved, format changed,
+page size limit), the hourly routine fixes it and pushes on its own via `mention/autofix.sh`, which only
+allows `mention/sources.py`, `mention/events.py` and this README, runs the demos, and caps it at 3 per
+24h. If the next tick still fails, the routine reverts the fix. CI (`.github/scripts/boundary.sh`)
+fails any `mention: autofix:` commit outside that allowlist. Each autofix adds a dated line to the list
+above; fixes must reproduce what the source served before, never change what the model sees.
+
 ## Shadow test (started 2026-11-10, log only)
 
 Does recent news improve on the blend?
