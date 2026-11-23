@@ -56,3 +56,10 @@
 {"ts": "2026-11-23T17:46:19.595392+00:00", "event_id": "1448597", "market_id": "7288814", "p": 0.43, "note": "no news, blend_p"}
 {"ts": "2026-11-23T17:46:19.595392+00:00", "event_id": "1448597", "market_id": "7288815", "p": 0.69, "note": "no news, blend_p"}
 {"ts": "2026-11-23T17:46:19.595392+00:00", "event_id": "1448597", "market_id": "7288816", "p": 0.42, "note": "no news, blend_p"}
+{"ts": "2026-11-23T20:43:38.742109+00:00", "event_id": "1437566", "market_id": "7231389", "p": 0.74, "note": "AI-heavy quarter, no new info"}
+{"ts": "2026-11-23T20:43:38.742109+00:00", "event_id": "1437566", "market_id": "7231390", "p": 0.84, "note": "memory cost pricing is the dominant news"}
+{"ts": "2026-11-23T20:43:38.742109+00:00", "event_id": "1437566", "market_id": "7231391", "p": 0.75, "note": "no news, blend"}
+{"ts": "2026-11-23T20:43:38.742109+00:00", "event_id": "1437566", "market_id": "7231392", "p": 0.81, "note": "no news, blend"}
+{"ts": "2026-11-23T20:43:38.742109+00:00", "event_id": "1437566", "market_id": "7231393", "p": 0.74, "note": "memory/board shortages in FT report"}
+{"ts": "2026-11-23T20:43:38.742109+00:00", "event_id": "1437566", "market_id": "7231394", "p": 0.4, "note": "no news, blend"}
+{"ts": "2026-11-23T20:43:38.742109+00:00", "event_id": "1437566", "market_id": "7231395", "p": 0.44, "note": "no news, blend"}
