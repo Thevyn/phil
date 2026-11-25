@@ -1446,3 +1446,7 @@
 {"type": "settle", "ts": "2026-11-25T17:41:41.390864+00:00", "market_id": "7231450", "outcome": 1}
 {"type": "settle", "ts": "2026-11-25T17:41:42.052674+00:00", "market_id": "7231453", "outcome": 1}
 {"type": "settle", "ts": "2026-11-25T17:41:42.265920+00:00", "market_id": "7231454", "outcome": 1, "maker_filled": 0, "maker_pnl": -0.0}
+{"type": "settle", "ts": "2026-11-25T18:41:33.349005+00:00", "market_id": "7231448", "outcome": 0}
+{"type": "settle", "ts": "2026-11-25T18:41:33.588024+00:00", "market_id": "7231449", "outcome": 0}
+{"type": "settle", "ts": "2026-11-25T18:41:33.812043+00:00", "market_id": "7231451", "outcome": 0, "maker_filled": 0, "maker_pnl": 0.0}
+{"type": "settle", "ts": "2026-11-25T18:41:34.292529+00:00", "market_id": "7231452", "outcome": 0}
